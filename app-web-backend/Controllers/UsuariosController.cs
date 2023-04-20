@@ -67,6 +67,11 @@ namespace app_web_backend.Controllers
             ViewBag.Message = "Usuário e/ou Senha inválidos!";
             return View();
         }
+        public async Task<IActionResult> logout()
+        {
+            await HttpContext.SignOutAsync();
+            return RedirectToAction("Login", "Usuarios");
+        }
 
         public IActionResult AccessDenied()
         {
